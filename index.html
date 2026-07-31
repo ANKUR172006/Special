@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Girlfriend's Day | Soumy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <div class="loader" id="loader">
+    <div class="loader-orbit">
+      <span></span><span></span><span></span>
+      <i class="fa-solid fa-heart"></i>
+    </div>
+    <p>Preparing something beautiful for Soumy...</p>
+    <div class="loader-track"><div id="loaderFill"></div></div>
+  </div>
+
+  <div class="background">
+    <canvas id="skyCanvas"></canvas>
+    <div class="aurora aurora-one"></div>
+    <div class="aurora aurora-two"></div>
+    <div class="aurora aurora-three"></div>
+    <div class="spotlight" id="spotlight"></div>
+  </div>
+
+  <nav class="topbar" aria-label="Girlfriend Day pages">
+    <button class="nav-btn active" data-page="home" aria-label="Home"><i class="fa-solid fa-house"></i><span>Home</span></button>
+    <button class="nav-btn" data-page="letter" aria-label="Letter"><i class="fa-solid fa-envelope-open-text"></i><span>Letter</span></button>
+    <button class="nav-btn" data-page="panda" aria-label="Panda"><i class="fa-solid fa-paw"></i><span>Panda</span></button>
+    <button class="nav-btn" data-page="memories" aria-label="Memories"><i class="fa-solid fa-images"></i><span>Memories</span></button>
+    <button class="nav-btn" data-page="reasons" aria-label="Reasons"><i class="fa-solid fa-heart-circle-check"></i><span>Reasons</span></button>
+    <button class="nav-btn" data-page="promise" aria-label="Promise"><i class="fa-solid fa-shield-heart"></i><span>Promise</span></button>
+    <button class="nav-btn" data-page="forever" aria-label="Forever"><i class="fa-solid fa-infinity"></i><span>Forever</span></button>
+  </nav>
+
+  <main id="app" class="is-hidden">
+    <section class="page hero-page active" id="home" data-title="Home">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">August 1 - Girlfriend Day</p>
+          <h1>Happy Girlfriend's Day, Soumy</h1>
+          <p class="script-line">My favorite person, my soft place, my forever smile.</p>
+          <p class="typed"><span id="typedText"></span><span class="cursor">|</span></p>
+          <div class="hero-actions">
+            <button class="primary-btn" data-page="letter"><span>Open your letter</span><i class="fa-solid fa-heart"></i></button>
+            <button class="ghost-btn" data-page="panda"><span>Meet your panda</span><i class="fa-solid fa-paw"></i></button>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="glass-heart">
+            <i class="fa-solid fa-heart"></i>
+            <span class="ring ring-one"></span>
+            <span class="ring ring-two"></span>
+            <span class="ring ring-three"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page letter-page" id="letter" data-title="Letter">
+      <div class="section-head">
+        <p class="eyebrow">A little confession</p>
+        <h2>For the girl who makes ordinary days feel special</h2>
+      </div>
+      <div class="letter-layout">
+        <button class="envelope" id="openLetterBtn" type="button" aria-label="Open love letter">
+          <span class="env-flap"></span>
+          <span class="env-paper"><i class="fa-solid fa-heart"></i></span>
+          <span class="env-body"></span>
+          <span class="env-seal">Open</span>
+        </button>
+        <article class="love-letter" id="loveLetter">
+          <p>My Love,</p>
+          <p>So maybe i am not the best lover but i love youin my best way i can , i will make this cruel world a heaven for you , i will make you my worlds happiest girl.</p>
+          <p>I promise to respect you, support you, protect your peace, and keep choosing you in the small everyday ways that matter most.</p>
+          <p class="signature">Forever yours,<br>Ankur</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="page panda-page" id="panda" data-title="Panda">
+      <div class="panda-copy">
+        <p class="eyebrow">Cute 3D surprise</p>
+        <h2>Your tiny panda is holding my heart</h2>
+        <p>Move your mouse or drag the scene. Tap the button when you want it to send love.</p>
+        <button class="primary-btn" id="pandaLoveBtn"><span>Send panda love</span><i class="fa-solid fa-paw"></i></button>
+      </div>
+      <div class="panda-stage">
+        <canvas id="pandaCanvas" aria-label="3D panda holding a heart"></canvas>
+        <div class="panda-fallback" aria-hidden="true">
+          <div class="css-3d-scene">
+            <div class="css-panda-3d">
+              <span class="panda-shadow"></span>
+              <span class="panda-ear ear-left"></span>
+              <span class="panda-ear ear-right"></span>
+              <span class="panda-body"></span>
+              <span class="panda-head">
+                <span class="panda-patch patch-left"><span class="panda-eye"></span></span>
+                <span class="panda-patch patch-right"><span class="panda-eye"></span></span>
+                <span class="panda-nose"></span>
+                <span class="panda-mouth"></span>
+                <span class="panda-blush blush-left"></span>
+                <span class="panda-blush blush-right"></span>
+              </span>
+              <span class="panda-arm arm-left"></span>
+              <span class="panda-arm arm-right"></span>
+              <span class="panda-foot foot-left"></span>
+              <span class="panda-foot foot-right"></span>
+              <span class="panda-heart">&#10084;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page memories-page" id="memories" data-title="Memories">
+      <div class="section-head">
+        <p class="eyebrow">Our little universe</p>
+        <h2>Moments I want to keep close</h2>
+      </div>
+      <div class="memory-grid" id="memoryGrid"></div>
+    </section>
+
+    <section class="page reasons-page" id="reasons" data-title="Reasons">
+      <div class="section-head">
+        <p class="eyebrow">Tiny reasons, big feelings</p>
+        <h2>Why I love you</h2>
+      </div>
+      <div class="reason-wheel" id="reasonWheel"></div>
+    </section>
+
+    <section class="page promise-page" id="promise" data-title="Promise">
+      <div class="promise-card">
+        <p class="eyebrow">My promise</p>
+        <h2>I will love you gently, proudly, and honestly.</h2>
+        <div class="promise-list">
+          <span><i class="fa-solid fa-shield-heart"></i> Respect you always</span>
+          <span><i class="fa-solid fa-hand-holding-heart"></i> Support your dreams</span>
+          <span><i class="fa-solid fa-face-smile"></i> Make you smile</span>
+          <span><i class="fa-solid fa-infinity"></i> Choose you daily</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="page forever-page" id="forever" data-title="Forever">
+      <div class="final-card">
+        <p class="eyebrow">One last thing</p>
+        <h2>Thank you for being in my life.</h2>
+        <p>You are my today, my tomorrow, and the sweetest part of every plan I dream about.</p>
+        <button class="primary-btn" id="finalBtn"><span>Make it magical</span><i class="fa-solid fa-wand-magic-sparkles"></i></button>
+        <p class="final-message" id="finalMessage">I love you more than words can ever say.</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="memoryModal" aria-hidden="true">
+    <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+    <button class="modal-arrow modal-prev" id="modalPrev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+    <img id="modalImage" alt="Selected memory">
+    <button class="modal-arrow modal-next" id="modalNext" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+
+  <div class="music-player">
+    <button id="musicToggle" class="music-toggle" aria-label="Play music"><i id="musicIcon" class="fa-solid fa-music"></i></button>
+    <div class="music-panel" id="musicPanel">
+      <input id="volumeSlider" type="range" min="0" max="100" value="50" aria-label="Volume">
+      <button id="muteBtn" aria-label="Mute"><i id="muteIcon" class="fa-solid fa-volume-high"></i></button>
+    </div>
+    <audio id="bgMusic" src="music.mp3" loop></audio>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.9.2/confetti.browser.min.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
